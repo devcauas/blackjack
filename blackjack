@@ -1,0 +1,159 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void) {
+
+  printf("BLACKJACK\n");
+
+  int x1,x2,x3,x4,x5;
+  int y1,y2,y3,y4,y5;
+  int vc1,vc2,vc3,vc4,vc5;
+  int pc1,pc2,pc3,pc4,pc5;
+  int player;
+
+  srand(time(NULL));
+  x1=(rand()%10)+1;
+  x2=(rand()%10)+1;
+  x3=(rand()%10)+1;
+  x4=(rand()%10)+1;
+  x5=(rand()%10)+1;
+  
+  y1=(rand()%10)+1;
+  y2=(rand()%10)+1;
+  y3=(rand()%10)+1;
+  y4=(rand()%10)+1;
+  y5=(rand()%10)+1;
+  
+  vc1=x1+x2;
+  vc2=(vc1)+x3;
+  vc3=(vc2)+x4;
+  vc4=(vc3)+x5;
+  
+  pc1=y1+y2;
+  pc2=(pc1)+y3;
+  pc3=(pc2)+y4;
+  pc4=(pc3)+y5;
+
+  printf("------------------------------------------------\n");
+  printf("Suas cartas são: %d + %d = %d\n",x1,x2,vc1);
+  printf("Cartas do adversário: computador=carta1+carta2\n");
+  printf("------------------------------------------------\n");
+  printf("Deseja continuar? (1=sim/2=não)\n");
+  scanf("%d",&player);
+
+  
+  if(player==1){
+    printf("------------------------------------------------\n");
+    printf("Suas cartas são: %d + %d + %d = %d\n",x1,x2,x3,vc2);
+    printf("Cartas do adversário: computador=carta1+carta2\n");
+    printf("------------------------------------------------\n");
+    printf("Deseja continuar? (1=sim/2=não)\n");
+    scanf("%d",&player);
+
+    if(player==1){
+      printf("------------------------------------------------\n");
+      printf("Suas cartas são: %d + %d + %d + %d = %d\n",x1,x2,x3,x4,vc3);
+      printf("Cartas do adversário: computador=carta1+carta2\n");
+      printf("------------------------------------------------\n");
+      printf("Deseja continuar? (1=sim/2=não)\n");
+      scanf("%d",&player);
+        if(player==1){
+          printf("------------------------------------------------\n");
+          printf("Suas cartas são: %d + %d + %d + %d + %d = %d\n",x1,x2,x3,x4,x5,vc4);
+          printf("Cartas do adversário: %d + %d + %d + %d + %d = %d\n",y1,y2,y3,y4,y5,pc4);
+          printf("------------------------------------------------\n");
+          if(vc4==pc4){
+            printf("Empate!\n");
+          }
+          if(vc4>21&&pc4>21){
+            printf("Empate!\n"); 
+          }
+          if(vc4>pc4&&vc4<=21){
+            printf("Você ganhou!\n");
+          }
+          if(vc4<pc4&&pc4<=21){
+            printf("Você perdeu!\n");
+          }
+          if(vc4>21&&pc4<=21){
+            printf("Você perdeu!\n");
+          }
+          if(vc4<=21&&pc4>21){
+            printf("Você ganhou!\n");
+          }
+          
+          }else if(player==2){
+            printf("------------------------------------------------\n");
+            printf("Suas cartas são: %d + %d + %d + %d = %d\n",x1,x2,x3,x4,vc3);
+            printf("Cartas do adversário: %d + %d + %d + %d = %d\n",y1,y2,y3,y4,pc3);
+            printf("------------------------------------------------\n");
+          if(vc3==pc3){
+            printf("Empate!\n");
+          }
+          if(vc3>21&&pc3>21){
+            printf("Empate!\n"); 
+          }
+          if(vc3>pc3&&vc3<=21){
+            printf("Você ganhou!\n");
+          }
+          if(vc3<pc3&&pc3<=21){
+            printf("Você perdeu!\n");
+          }
+          if(vc3>21&&pc3<=21){
+            printf("Você perdeu!\n");
+          }
+          if(vc3<=21&&pc3>21){
+            printf("Você ganhou!\n");
+          }
+          }
+      }else if(player==2){
+        printf("------------------------------------------------\n");
+        printf("Suas cartas são: %d + %d + %d = %d\n",x1,x2,x3,vc2);
+        printf("Cartas do adversário: %d + %d + %d = %d\n",y1,y2,y3,pc2);
+        printf("------------------------------------------------\n");
+      if(vc2==pc2){
+        printf("Empate!\n");
+      }
+      if(vc2>21&&pc2>21){
+        printf("Empate!\n"); 
+      }
+      if(vc2>pc2&&vc2<=21){
+        printf("Você ganhou!\n");
+      }
+      if(vc2<pc2&&pc2<=21){
+        printf("Você perdeu!\n");
+      }
+      if(vc2>21&&pc2<=21){
+        printf("Você perdeu!\n");
+      }
+      if(vc2<=21&&pc2>21){
+        printf("Você ganhou!\n");
+      }
+      }
+  }else if(player==2){
+    printf("------------------------------------------------\n");
+    printf("Suas cartas são: %d + %d = %d\n",x1,x2,vc1);
+    printf("Cartas do adversário: %d + %d = %d\n",y1,y2,pc1);
+    printf("------------------------------------------------\n");
+    if(vc1==pc1){
+      printf("Empate!\n");
+    }
+    if(vc1>21&&pc1>21){
+      printf("Empate!\n"); 
+    }
+    if(vc1>pc1&&vc1<=21){
+      printf("Você ganhou!\n");
+    }
+    if(vc1<pc1&&pc1<=21){
+      printf("Você perdeu!\n");
+    }
+    if(vc1>21&&pc1<=21){
+      printf("Você perdeu!\n");
+    }
+    if(vc1<=21&&pc1>21){
+      printf("Você ganhou!\n");
+    }
+  }
+  return 0;
+}
